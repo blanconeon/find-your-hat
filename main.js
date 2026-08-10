@@ -11,6 +11,7 @@ class Field {
     this.playerPosition = { row: 0, col: 0 }; // you'd likely track this too
   }
 
+  
   move(direction) {
     // modifies this.grid or this.playerPosition DIRECTLY
     if (direction === 'up') {
@@ -23,17 +24,23 @@ class Field {
     console.log(this.grid); // always prints the CURRENT, up-to-date grid
   }
 }
-/*
-const game = new Game([[...]]); // grid set up ONCE, when the game starts
-game.move('up');    // internally updates this.grid / this.playerPosition
-game.print();       // shows the updated state
-game.move('left');  // updates again
-game.print();       // shows the newly updated state*/
-
-
 
 const myField = new Field([
   ['*', '░', 'O'],
   ['░', 'O', '░'],
   ['░', '^', '░'],
 ]);
+
+myField.print();
+
+/*
+const game = new Game([[...]]); // grid set up ONCE, when the game starts
+game.move('up');    // internally updates this.grid / this.playerPosition
+game.print();       // shows the updated state
+game.move('left');  // updates again
+game.print();       // shows the newly updated state
+// */
+
+
+
+
