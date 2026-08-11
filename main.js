@@ -10,7 +10,10 @@ class Field {
     this.grid = initialGrid;    // grid is now PART OF the object's identity/state
     this.playerPosition = { row: 0, col: 0 }; // you'd likely track this too
   }
-
+ 
+  stringField(){
+   return this.grid.map(row => row.join(' ')).join('\n');
+  }
   
   move(direction) {
     // modifies this.grid or this.playerPosition DIRECTLY
@@ -21,6 +24,7 @@ class Field {
   }
 
   print() {
+     stringField();
     console.log(this.grid); // always prints the CURRENT, up-to-date grid
   }
 }
