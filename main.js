@@ -24,7 +24,7 @@ class Field {
   }
 
   print() {
-     stringField();
+     this.stringField();
     console.log(this.grid); // always prints the CURRENT, up-to-date grid
   }
 }
