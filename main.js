@@ -18,7 +18,16 @@ class Field {
   move(direction) {
     // modifies this.grid or this.playerPosition DIRECTLY
     if (direction === 'up') {
-      this.playerPosition.row -= 1;
+      //this.playerPosition.row -= 1;
+    }
+    if (direction === 'down') {
+      //this.playerPosition.row += 1;
+    }
+    if (direction === 'right') {
+      //this.playerPosition.column += 1;
+    }
+    if (direction === 'left') {
+      //this.playerPosition -= 1;
     }
     // ... etc
   }
