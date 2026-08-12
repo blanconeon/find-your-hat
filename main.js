@@ -24,8 +24,7 @@ class Field {
   }
 
   print() {
-     this.stringField();
-    console.log(this.grid); // always prints the CURRENT, up-to-date grid
+     console.log(this.stringField()); // always prints the CURRENT, up-to-date grid
   }
 }
 
@@ -44,6 +43,8 @@ game.print();       // shows the updated state
 game.move('left');  // updates again
 game.print();       // shows the newly updated state
 // */
+
+
 
 
 
