@@ -16,6 +16,9 @@ class Field {
   }
   
   move(direction) {
+    //temporary variable, check if the move is valid, and only then actually commit it to
+    let newRow = this.playerPosition.row;   // start as a COPY of current row
+    let newCol = this.playerPosition.col;   // start as a COPY of current col
     // modifies this.grid or this.playerPosition DIRECTLY
     if (direction === 'up') {
       //this.playerPosition.row -= 1;
