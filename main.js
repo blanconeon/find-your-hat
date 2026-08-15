@@ -5,6 +5,9 @@ const hole = 'O';
 const fieldCharacter = '░';
 const pathCharacter = '*';
 
+// smaple prompt to pass to direction
+//const name = prompt('What is your name?');
+
 class Field {
   constructor(initialGrid) {
     this.grid = initialGrid;    // grid is now PART OF the object's identity/state
@@ -37,6 +40,7 @@ class Field {
 
   print() {
      console.log(this.stringField()); // always prints the CURRENT, up-to-date grid
+  
   }
 }
 
@@ -45,8 +49,12 @@ const myField = new Field([
   ['░', 'O', '░'],
   ['░', '^', '░'],
 ]);
-
 myField.print();
+const direction = prompt('Which way? ');
+myField.move(direction);
+myField.print();
+
+
 
 /*
 const game = new Game([[...]]); // grid set up ONCE, when the game starts
