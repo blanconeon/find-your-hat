@@ -28,8 +28,18 @@ class Field {
     let newRow = this.playerPosition.row;   // start as a COPY of current row
     let newCol = this.playerPosition.col;   // start as a COPY of current col
 
-
-
+    if (direction === 'up') {
+      newRow -= 1;   // just adjusts the TEMPORARY copy
+       }
+    if (direction === 'down') {
+      newRow += 1;   // just adjusts the TEMPORARY copy
+       }
+    if (direction === 'left') {
+      newCol -= 1;   // just adjusts the TEMPORARY copy
+       }
+    if (direction === 'right') {
+      newCol += 1;   // just adjusts the TEMPORARY copy
+       }
 
 
 
