@@ -19,21 +19,33 @@ class Field {
   }
   
   move(direction) {
+    const validDirections = ['up', 'down', 'right', 'left'];
+
+    if (!validDirections.includes(direction)) {
+      console.log(`${directiion} is not a valid instruction`);
+    }
     //temporary variable, check if the move is valid, and only then actually commit it to
     let newRow = this.playerPosition.row;   // start as a COPY of current row
     let newCol = this.playerPosition.col;   // start as a COPY of current col
+
+
+
+
+
+
+    
     // modifies this.grid or this.playerPosition DIRECTLY
     if (direction === 'up') {
-      //this.playerPosition.row -= 1;
+      this.playerPosition.row -= 1;
     }
     if (direction === 'down') {
-      //this.playerPosition.row += 1;
+      this.playerPosition.row += 1;
     }
     if (direction === 'right') {
-      //this.playerPosition.column += 1;
+      this.playerPosition.col += 1;
     }
     if (direction === 'left') {
-      //this.playerPosition -= 1;
+      this.playerPosition.col -= 1;
     }
     // ... etc
   }
@@ -50,7 +62,7 @@ const myField = new Field([
   ['░', '^', '░'],
 ]);
 myField.print();
-const direction = prompt('Which way? ');
+const direction = prompt('Which way? (up/down/left/right): ');
 myField.move(direction);
 myField.print();
 
