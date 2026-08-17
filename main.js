@@ -22,7 +22,7 @@ class Field {
     const validDirections = ['up', 'down', 'right', 'left'];
 
     if (!validDirections.includes(direction)) {
-      console.log(`${directiion} is not a valid instruction`);
+      console.log(`${direction} is not a valid instruction`);
     }
     //temporary variable, check if the move is valid, and only then actually commit it to
     let newRow = this.playerPosition.row;   // start as a COPY of current row
@@ -54,8 +54,15 @@ class Field {
     
     // Updates the actual: this.playerPosition using the values checked above. 
     
-    this.playerPosition.row = newRow;   // just COPY the already-calculated value over
+    this.playerPosition.row = newRow;   // playerPosition is updated with the already-calculated value over
     this.playerPosition.col = newCol;
+
+    // checks whats value exists in te new position and responds accordingly
+
+    if (this.grid[newRow][newCol] === fieldCharacter) {
+      this.grid[newRow][newCol] = pathCharacter;
+      return;
+    }
     
   }
 
