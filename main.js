@@ -41,23 +41,22 @@ class Field {
       newCol += 1;   // just adjusts the TEMPORARY copy
        }
 
+     //check if new positioning is out of bounds
+     if (newRow < 0 || newRow > this.grid.length - 1) {
+      console.log('row is out of bounds')
+      return;   // this stops the WHOLE move() function immediately
+     }
 
-
+    if (newCol < 0 || newCol > this.grid[0].length - 1) {
+       console.log('col is out of bounds')
+      return;   // this stops the WHOLE move() function immediately 
+      }
     
-    // modifies this.grid or this.playerPosition DIRECTLY
-    if (direction === 'up') {
-      this.playerPosition.row -= 1;
-    }
-    if (direction === 'down') {
-      this.playerPosition.row += 1;
-    }
-    if (direction === 'right') {
-      this.playerPosition.col += 1;
-    }
-    if (direction === 'left') {
-      this.playerPosition.col -= 1;
-    }
-    // ... etc
+    // Updates the actual: this.playerPosition using the values checked above. 
+    
+    this.playerPosition.row = newRow;   // just COPY the already-calculated value over
+    this.playerPosition.col = newCol;
+    
   }
 
   print() {
