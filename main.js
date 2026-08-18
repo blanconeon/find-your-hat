@@ -59,10 +59,18 @@ class Field {
 
     // checks whats value exists in te new position and responds accordingly
 
-    if (this.grid[newRow][newCol] === fieldCharacter) {
+    if ([fieldCharacter, pathCharacter].includes(this.grid[newRow][newCol])) {
       this.grid[newRow][newCol] = pathCharacter;
-      return;
-    }
+      return;// replaces position with pathCharacter
+    } else if (this.grid[newRow][newCol] === hole) {
+      this.grid[newRow][newCol] = pathCharacter;
+      console.log('you`ve fallen into a hole!');
+      return; // replaces position with path charact ad logs
+    } else if (this.grid[newRow][newCol] === hat) {
+      this.grid[newRow][newCol] = pathCharacter;
+      console.log('Congratulations you`ve found the hat!');
+      return;// replaces position with path charact ad logs
+    } 
     
   }
 
