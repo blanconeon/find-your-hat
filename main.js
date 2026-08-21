@@ -80,6 +80,8 @@ class Field {
   }
 }
 
+// function to create a loop using a condition// 
+
 const myField = new Field([
   ['*', '░', 'O'],
   ['░', 'O', '░'],
