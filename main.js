@@ -20,7 +20,7 @@ class Field {
   
   move(direction) {
     const validDirections = ['up', 'down', 'right', 'left'];
-
+    let gameStatus;
     if (!validDirections.includes(direction)) {
       console.log(`${direction} is not a valid instruction`);
     }
@@ -61,15 +61,21 @@ class Field {
 
     if ([fieldCharacter, pathCharacter].includes(this.grid[newRow][newCol])) {
       this.grid[newRow][newCol] = pathCharacter;
-      return;// replaces position with pathCharacter
+      gameStatus = 'ok';
+      this.print();
+      return gameStatus;// replaces position with pathCharacter
     } else if (this.grid[newRow][newCol] === hole) {
       this.grid[newRow][newCol] = pathCharacter;
+      gameStatus = 'lose';
+      this.print();
       console.log('you`ve fallen into a hole!');
-      return; // replaces position with path charact ad logs
+      return gameStatus; // replaces position with path charact ad logs
     } else if (this.grid[newRow][newCol] === hat) {
       this.grid[newRow][newCol] = pathCharacter;
+      gameStatus = 'win';
+      this.print();
       console.log('Congratulations you`ve found the hat!');
-      return;// replaces position with path charact ad logs
+      return gameStatus;// replaces position with path charact ad logs
     } 
     
   }
@@ -87,10 +93,27 @@ const myField = new Field([
   ['░', 'O', '░'],
   ['░', '^', '░'],
 ]);
-myField.print();
-const direction = prompt('Which way? (up/down/left/right): ');
-myField.move(direction);
-myField.print();
+
+
+
+
+
+function loopFunction (field) {
+ field.print(); // 1st prints
+ const direction = prompt('Which way? (up/down/left/right): ')//2 prompts the user
+ let statusGame = field.move(direction);// 3 updtaes position and replaces characters as needed
+ field.print(); // 4 prints again
+ 
+ while (statusGame === 'ok'){ // makes continuation of prompt, update and print until condition is met. 
+  let renewedDirection = prompt('good work, Which way now? (up/down/left/right): ')
+  statusGame = field.move(renewedDirection);
+  field.print();
+ }
+}
+
+
+
+
 
 
 
