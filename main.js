@@ -81,6 +81,7 @@ class Field {
   }
 
   print() {
+    console.clear(); 
      console.log(this.stringField()); // always prints the CURRENT, up-to-date grid
   
   }
@@ -96,34 +97,22 @@ const myField = new Field([
 
 
 
-
-
 function loopFunction (field) {
  field.print(); // 1st prints
  const direction = prompt('Which way? (up/down/left/right): ')//2 prompts the user
- let statusGame = field.move(direction);// 3 updtaes position and replaces characters as needed
- field.print(); // 4 prints again
+ let statusGame = field.move(direction);// 3 updtaes position and replaces characters as needed, move() prints.
  
  while (statusGame === 'ok'){ // makes continuation of prompt, update and print until condition is met. 
   let renewedDirection = prompt('good work, Which way now? (up/down/left/right): ')
   statusGame = field.move(renewedDirection);
-  field.print();
+  //move() prints.
  }
 }
 
+loopFunction(myField);
 
 
 
-
-
-
-/*
-const game = new Game([[...]]); // grid set up ONCE, when the game starts
-game.move('up');    // internally updates this.grid / this.playerPosition
-game.print();       // shows the updated state
-game.move('left');  // updates again
-game.print();       // shows the newly updated state
-// */
 
 
 
