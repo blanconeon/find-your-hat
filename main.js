@@ -22,7 +22,10 @@ class Field {
     const validDirections = ['up', 'down', 'right', 'left'];
     let gameStatus;
     if (!validDirections.includes(direction)) {
+      this.print();
       console.log(`${direction} is not a valid instruction`);
+      gameStatus = 'reprompt';
+      return gameStatus;
     }
     //temporary variable, check if the move is valid, and only then actually commit it to
     let newRow = this.playerPosition.row;   // start as a COPY of current row
@@ -43,13 +46,17 @@ class Field {
 
      //check if new positioning is out of bounds
      if (newRow < 0 || newRow > this.grid.length - 1) {
-      console.log('row is out of bounds')
-      return;   // this stops the WHOLE move() function immediately
+      this.print();
+      console.log('row is out of bounds');
+      gameStatus = 'reprompt';
+      return gameStatus; // since move is out of bounds it reprompts the user
      }
 
     if (newCol < 0 || newCol > this.grid[0].length - 1) {
-       console.log('col is out of bounds')
-      return;   // this stops the WHOLE move() function immediately 
+       this.print();
+       console.log('col is out of bounds');
+        gameStatus = 'reprompt';
+      return gameStatus; // since move is out of bounds it reprompts the user
       }
     
     // Updates the actual: this.playerPosition using the values checked above. 
@@ -92,7 +99,8 @@ class Field {
 const myField = new Field([
   ['*', '░', 'O'],
   ['░', 'O', '░'],
-  ['░', '^', '░'],
+  ['░', '░', 'O'],
+  ['O', '░', '^'],
 ]);
 
 
@@ -102,7 +110,7 @@ function loopFunction (field) {
  const direction = prompt('Which way? (up/down/left/right): ')//2 prompts the user
  let statusGame = field.move(direction);// 3 updtaes position and replaces characters as needed, move() prints.
  
- while (statusGame === 'ok'){ // makes continuation of prompt, update and print until condition is met. 
+ while (statusGame === 'ok' || statusGame === 'reprompt'){ // makes continuation of prompt, update and print until condition is met. 
   let renewedDirection = prompt('good work, Which way now? (up/down/left/right): ')
   statusGame = field.move(renewedDirection);
   //move() prints.
