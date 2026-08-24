@@ -98,8 +98,10 @@ class Field {
   for (let i = 0; i < height; i++) {
    generatedField.push([]);
   for (let j=0; j < width; j ++) {
-    
-  } 
+    generatedField[i].push('░');
+  }
+  
+  return generatedField
 }   
 
 }
