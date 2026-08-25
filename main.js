@@ -100,11 +100,17 @@ class Field {
   for (let j=0; j < width; j ++) {
     generatedField[i].push('░');
   }
-  
-  return generatedField
 }   
+generatedField[0][0] = '*';
 
+
+
+
+return generatedField
 }
+
+
+
 
 }
 
