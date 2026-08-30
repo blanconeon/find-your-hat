@@ -19,3 +19,13 @@ while (!foundCorrectNumber) {
     console.log('Sorry, guess again!');
   }
 }
+
+// to delete
+
+generateField(height, width, percentage) {
+  let generatedField = [];
+  for (let i = 0; i < height; i++) {
+   generatedField.push([],)
+}   
+
+}
