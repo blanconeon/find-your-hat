@@ -1,31 +1,6 @@
-const prompt = require('prompt-sync')({sigint: true});
+export function ErrorSummary({ errors, fieldOrder, show }: ErrorSummaryProps) {
+  const activeErrors = fieldOrder.filter((name) => errors[name]);
 
-// Random number from 1 - 10
-const numberToGuess = Math.floor(Math.random() * 5) + 1;
-// This variable is used to determine if the app should continue prompting the user for input
-let foundCorrectNumber = false;
-
-while (!foundCorrectNumber) {
-  // Get user input
-  let guess = prompt('Guess a number from 1 to 5: ');
-  // Convert the string input to a number
-  guess = Number(guess);
-
-  // Compare the guess to the secret answer and let the user know.
-  if (guess === numberToGuess) {
-    console.log('Congrats, you got it!');
-    foundCorrectNumber = true;
-  } else {
-    console.log('Sorry, guess again!');
+  if (!show || activeErrors.length === 0) {
+    return null;
   }
-}
-
-// to delete
-
-generateField(height, width, percentage) {
-  let generatedField = [];
-  for (let i = 0; i < height; i++) {
-   generatedField.push([],)
-}   
-
-}
