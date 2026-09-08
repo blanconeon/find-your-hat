@@ -18,3 +18,9 @@ export function ErrorSummary({ errors, fieldOrder, show }: ErrorSummaryProps) {
           <li key={name}>
             <a
               href={`#${name}`}
+
+              interface ErrorSummaryProps {
+  errors: Record<string, string>;
+  fieldOrder: readonly string[];
+  show: boolean;
+}
